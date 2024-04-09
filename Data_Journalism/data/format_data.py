@@ -24,14 +24,14 @@ with  open('Data_Journalism/data/Parks_Data.csv', 'r') as read_obj:
     # convert string to list 
     list_of_csv = list(csv_reader) 
   
-print(list_of_csv) 
+#print(list_of_csv) 
 
 for tinylist in list_of_csv:
-    for key in dictionary:
-        if(tinylist[1]) not in dictionary:
-            dictionary[f'{tinylist[1]}'] = f'{tinylist}'
-        else:
-            dictionary[f'{tinylist[1]}'].add(f'{tinylist}')
+    if tinylist is not ['ACRES', 'BOROUGH', 'LOCATION', 'SIGNNAME', 'TYPECATEGORY', 'URL', 'ZIPCODE']:
+        if(tinylist[3]) not in dictionary:
+            dictionary[tinylist[3]] = tinylist
+           
+    
 print(dictionary)
         
 
@@ -43,6 +43,6 @@ f1.close()
 
 #Save the json object to a file
 f2 = open("Data_Journalism/data/Parks_Data.json", "w")
-# json.dump(list, f2, indent = 4)
+json.dump(dictionary, f2, indent = 4)
 
 f2.close()
