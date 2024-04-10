@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Data Journalism - About</title>
+    <link rel="stylesheet" href="../static/style.css">
+  </head>
+  
+  <body>
+	<h1>Data Journalism - About</h1>
+    <h3>All Parks in NYC</h3>
+    <p>New York City is known to have diverse communities, countless opportunities, and more importantly to this investigation, parks. I wanted to investigate how many parks there were in NYC because no matter where I went, there always seemed to be a park, whether it be big or small, lively or quiet.</p> 
+    <p>It made me think "How common is it to stumble upon a park when you're simply walking?", and then made me begin this investigation.</p>
+    <h3>Cleansing Data</h3>
+    <p>Looking at the data in the CSV file, there was a lot of information that was not very useful to me, such as their jurisdiction area or if they are near a body of water. </p>
+    <p>Given this, I cut all the data down to only it's most important sections:</p>
+    <ul>
+        <li>Park Name</li>
+        <li>Size (in acres)</li>
+        <li>Location</li>
+        <li>Borough</li>
+        <li>Type of Park</li>
+        <li>Zip Code</li>
+        <li>Website Link to NYC Park website about each park</li>
+    </ul>
+    <p>Now that I had the most important data points for my journalism project, I used a python script to convert the CSV file into a JSON file containing nested dictionaries of all the park data, which makes the data a lot more understandable and easier to work with.</p>
+    <a href="../Data_Journalism/data/format_data.py">Here is the python script</a>
+    <br>
+    <br>
+    <a href="../Data_Journalism/data/Parks_Data.json">Here is the JSON file containing all the data, but easier to understand</a>
+    <br>
+    <br>
+    <br>
+    <br>
+    <a href="https://nycopendata.socrata.com/Recreation/Parks-Properties/enfh-gkve/about_data">Source</a>
+  </body>
+</html>

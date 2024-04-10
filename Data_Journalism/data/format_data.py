@@ -6,14 +6,7 @@ f1 = open("Data_Journalism/data/Parks_Data.csv", "r")
 lines = f1.readlines()
 listed=[]
 dictionary={}
-#   "B": {
-#     "ParkName":{}
-#     "ParkName2":{}
-#   }
-#   "Q":{
-#     "ParkName":{}
-#     "PakrkName2":{}
-#   }
+
 
 with  open('Data_Journalism/data/Parks_Data.csv', 'r') as read_obj: 
   
@@ -25,14 +18,26 @@ with  open('Data_Journalism/data/Parks_Data.csv', 'r') as read_obj:
     list_of_csv = list(csv_reader) 
   
 #print(list_of_csv) 
+edited_csv = list_of_csv[1:]
+#print(edited_csv)
+#print(list_of_csv[0][0])
 
-for tinylist in list_of_csv:
-    if tinylist is not ['ACRES', 'BOROUGH', 'LOCATION', 'SIGNNAME', 'TYPECATEGORY', 'URL', 'ZIPCODE']:
-        if(tinylist[3]) not in dictionary:
-            dictionary[tinylist[3]] = tinylist
-           
+for sublist in edited_csv:
+        if sublist[3] not in dictionary:
+            dictionary[sublist[3]]= {}
+        for key in dictionary:
+          if list_of_csv[0][0] not in dictionary[key]:
+            dictionary[sublist[3]][list_of_csv[0][0]] = sublist[0]
+            dictionary[sublist[3]][list_of_csv[0][1]] = sublist[1]
+            dictionary[sublist[3]][list_of_csv[0][2]] = sublist[2]
+            dictionary[sublist[3]][list_of_csv[0][3]] = sublist[3]
+            dictionary[sublist[3]][list_of_csv[0][4]] = sublist[4]
+            dictionary[sublist[3]][list_of_csv[0][5]] = sublist[5]
+            dictionary[sublist[3]][list_of_csv[0][6]] = sublist[7] #trimmed zipcode is on a different coloumn
+            
+# some issues: Names "Park" and "Sitting Area" are shared between multiple parks (around 100 parks are just named "Park")
     
-print(dictionary)
+#print(dictionary)
         
 
 
