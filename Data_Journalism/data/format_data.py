@@ -36,6 +36,7 @@ for sublist in edited_csv:
             dictionary[sublist[3]][list_of_csv[0][6]] = sublist[7] #trimmed zipcode is on a different coloumn
             
 # some issues: Names "Park" and "Sitting Area" are shared between multiple parks (around 100 parks are just named "Park")
+# just say "data not found"
     
 #print(dictionary)
         
