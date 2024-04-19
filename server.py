@@ -10,7 +10,7 @@ app = Flask(__name__, static_url_path='', static_folder='static')
 def index():
     return render_template('about.html')
 
-@app.route('/macro_page')
+@app.route('/macropage')
 def year():
     return render_template('macro_page.html')
     
