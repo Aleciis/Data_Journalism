@@ -12,14 +12,14 @@ def year():
     f= open("Data_Journalism/data/Parks_Data.json", "r")
     data=json.load(f)
     f.close()
-    print(data)
+    #print(data)
     Parks= data.keys()
     Parks_Underscored= []
     for key in Parks:
         key = key.replace(" ", "_")
         Parks_Underscored.append(key)
     #print(Parks_underscored)
-    return render_template('macro_page.html', Parks= data.keys(), Parks_underscored=Parks_Underscored, Parks_and_Parks_Underscored=zip(Parks,Parks_Underscored))
+    return render_template('macro_page.html', Parks= data.keys(), Parks_Underscored=Parks_Underscored, Parks_and_Parks_Underscored=zip(Parks,Parks_Underscored))
 
 @app.route('/about')
 def index():
@@ -34,7 +34,7 @@ def index():
         Parks_Underscored.append(key)
     #print(Parks_underscored)
     
-    return render_template('about.html',  Parks= data.keys(), Parks_Underscored=Parks_Underscored, Parks_and_Parks_Underscored=zip(Parks,Parks_Underscored) )
+    return render_template('about.html',  Parks= data.keys(), Parks_Underscored=Parks_Underscored, Parks_and_Parks_Underscored=zip(Parks,Parks_Underscored))
 
 @app.route('/micro')
 def micro():
@@ -45,7 +45,7 @@ def micro():
     print(f"request.url={request.query_string}")
     Individual_Park=request.query_string.decode()
     Individual_Park_Spaces=Individual_Park.replace("_", " ")
-    print(Individual_Park_Spaces)
+    #print(Individual_Park_Spaces)
     Parks= data.keys()
     Parks_Underscored= []
     for key in Parks:
@@ -54,7 +54,7 @@ def micro():
     #print(Parks_underscored)
     
     
-    return render_template('micro_page.html',  Parks= data.keys(), Parks_underscored=Parks_Underscored, Parks_and_Parks_Underscored=zip(Parks,Parks_Underscored), Individual_Park_Spaces = Individual_Park_Spaces)
+    return render_template('micro_page.html',  Parks= data.keys(), Parks_Underscored=Parks_Underscored, Parks_and_Parks_Underscored=zip(Parks,Parks_Underscored), Individual_Park_Spaces = Individual_Park_Spaces)
 
 
     

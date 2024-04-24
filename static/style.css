@@ -1,5 +1,8 @@
-.rotate{
+.prototype_pictures{
     transform: rotate(270deg);
+    width:500px; /* you can use % */
+    height: auto;
+    padding-left:120px;
 }
 table, th, td {
     border:1px solid black;
