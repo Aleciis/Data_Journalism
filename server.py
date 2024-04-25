@@ -51,10 +51,12 @@ def micro():
     for key in Parks:
         key = key.replace(" ", "_")
         Parks_Underscored.append(key)
+    Individual_Park_Spaces_String = str(Individual_Park_Spaces)
+    print(data[Individual_Park_Spaces_String]["ACRES"])
     #print(Parks_underscored)
     
     
-    return render_template('micro_page.html',  Parks= data.keys(), Parks_Underscored=Parks_Underscored, Parks_and_Parks_Underscored=zip(Parks,Parks_Underscored), Individual_Park_Spaces = Individual_Park_Spaces)
+    return render_template('micro_page.html',  Parks= data.keys(), Parks_Underscored=Parks_Underscored, Parks_and_Parks_Underscored=zip(Parks,Parks_Underscored), Individual_Park_Spaces = Individual_Park_Spaces, Park_Acres = data[Individual_Park_Spaces_String]["ACRES"])
 
 
     
