@@ -19,6 +19,15 @@ def year():
         key = key.replace(" ", "_")
         Parks_Underscored.append(key)
     #print(Parks_underscored)
+        listzip=[]
+    for name in Parks:
+        for number in data[name]["ZIPCODE"]:
+            if data[name]["ZIPCODE"] not in listzip:
+                listzip.append(data[name]["ZIPCODE"])
+    # creates list of unique zipcodes
+    #print(listzip)
+
+    
     return render_template('macro_page.html', Parks= data.keys(), Parks_Underscored=Parks_Underscored, Parks_and_Parks_Underscored=zip(Parks,Parks_Underscored))
 
 @app.route('/about')
@@ -71,10 +80,9 @@ def micro():
     print(data[Individual_Park_Spaces_String])
     #print(Parks_underscored)
     
-    
+ 
     return render_template('micro_page.html',  Parks= data.keys(), Parks_Underscored=Parks_Underscored, Parks_and_Parks_Underscored=zip(Parks,Parks_Underscored), Individual_Park_Spaces = Individual_Park_Spaces_String, Park_Acres = data[Individual_Park_Spaces_String]["ACRES"],Park_Borough = borough,Park_Location = data[Individual_Park_Spaces_String]["LOCATION"],Park_Type = data[Individual_Park_Spaces_String]["TYPECATEGORY"],Park_URL = data[Individual_Park_Spaces_String]["URL"],Park_Zipcode = data[Individual_Park_Spaces_String]["ZIPCODE"])
 
 
-    
 
 app.run(debug=True)
