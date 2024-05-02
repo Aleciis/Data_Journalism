@@ -1,4 +1,15 @@
+var data = [{
+    values: [376, 350, 555, 430, 146],
+    labels: ['Manhattan', 'The Bronx', 'Brooklyn', 'Queens', 'Staten Island'],
+    type: 'pie'
+  }];
 
+  var layout = {
+    height: 400,
+    width: 500
+  };
+
+  Plotly.newPlot('myDiv', data, layout);
 
 
 //new_svg = "<svg>"+ "<path d="+park.d+" id="+"'10034'"+"</path></svg>"

@@ -20,13 +20,28 @@ def year():
         Parks_Underscored.append(key)
     #print(Parks_underscored)
         listzip=[]
-    for name in Parks:
+    park_boroughs = [0,0,0,0,0] # M, X, B, Q, R
+    for name in Parks: 
         for number in data[name]["ZIPCODE"]:
             if data[name]["ZIPCODE"] not in listzip:
                 listzip.append(data[name]["ZIPCODE"])
+
+        for letter in data[name]["BOROUGH"]:
+          if str(letter) == "M":
+            park_boroughs[0]+=1
+          if str(letter) == "X":
+            park_boroughs[1]+=1
+          if str(letter) == "B":
+            park_boroughs[2]+=1
+          if str(letter) == "Q":
+            park_boroughs[3]+=1
+          if str(letter) == "R":
+            park_boroughs[4]+=1
+    print(park_boroughs)
     # creates list of unique zipcodes
     #print(listzip)
-
+    
+    
     
     return render_template('macro_page.html', Parks= data.keys(), Parks_Underscored=Parks_Underscored, Parks_and_Parks_Underscored=zip(Parks,Parks_Underscored))
 
