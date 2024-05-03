@@ -7,3 +7,12 @@
 table, th, td {
     border:1px solid black;
   }
+
+  svg{
+    fill:#ececec; 
+    stroke: black ;
+    stroke-linecap:round;
+    stroke-linejoin:round; 
+    stroke-width:.1; 
+     
+  }
