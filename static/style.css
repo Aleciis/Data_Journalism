@@ -8,7 +8,7 @@ table, th, td {
     border:1px solid black;
   }
 
-.zipcodes{
+.zipcode{
     fill: #88A4BC; 
     opacity:.6;
      stroke:#ffffff;
