@@ -43,7 +43,7 @@ def year():
     
     
     
-    return render_template('macro_page.html', Parks= data.keys(), Parks_Underscored=Parks_Underscored, Parks_and_Parks_Underscored=zip(Parks,Parks_Underscored))
+    return render_template('macro_page.html', Parks= data.keys(), Parks_Underscored=Parks_Underscored, Parks_and_Parks_Underscored=zip(Parks,Parks_Underscored), SVG_ZIPCODES = "../SVG_ZIPCODES")
 
 @app.route('/about')
 def index():
@@ -97,7 +97,16 @@ def micro():
     
  
     return render_template('micro_page.html',  Parks= data.keys(), Parks_Underscored=Parks_Underscored, Parks_and_Parks_Underscored=zip(Parks,Parks_Underscored), Individual_Park_Spaces = Individual_Park_Spaces_String, Park_Acres = data[Individual_Park_Spaces_String]["ACRES"],Park_Borough = borough,Park_Location = data[Individual_Park_Spaces_String]["LOCATION"],Park_Type = data[Individual_Park_Spaces_String]["TYPECATEGORY"],Park_URL = data[Individual_Park_Spaces_String]["URL"],Park_Zipcode = data[Individual_Park_Spaces_String]["ZIPCODE"])
-
+@app.route('/zipcodes')
+def zipcodes():
+    f= open("Data_Journalism/data/Parks_Data.json", "r")
+    data=json.load(f)
+    f.close()
+    print(f"request.url={request.url}")
+    print(f"request.url={request.query_string}")
+    zipcodes=request.query_string.decode()
+    print(zipcodes)
+    return render_template('zipcodes.html', zipcodes=zipcodes)
 
 
 app.run(debug=True)
