@@ -102,10 +102,14 @@ def zipcodes():
     f= open("Data_Journalism/data/Parks_Data.json", "r")
     data=json.load(f)
     f.close()
+
+
     print(f"request.url={request.url}")
     print(f"request.url={request.query_string}")
     zipcodes=request.query_string.decode()
     print(zipcodes)
+
+    # do f=open svg_individual_zipcodes/requestquerystring and copy text to pass as a string
     return render_template('zipcodes.html', zipcodes=zipcodes)
 
 
