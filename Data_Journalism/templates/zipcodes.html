@@ -1,0 +1,13 @@
+{% include 'navbar.html' %}
+
+<svg xmlns="http://www.w3.org/2000/svg">
+{{zipcode_svg |  replace("b&#34;","<") }}
+</svg>
+<h3>This is zipcode {{zipcodes}}</h3>
+<h4>Here are all the parks in this zipcode:</h4>
+{%for park,spaces in park_list_and_park_underscored%}
+<a href="/micro?{{spaces}}">{{park}}</a><br><br>
+{%endfor%}
+<h5>Click on the links to learn more about each park!</h5>
+</body>
+</html>
