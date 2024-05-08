@@ -3,13 +3,16 @@
    
 
     {% include 'SVG_ZIPCODES/10001.svg' %}
-  <p>Welcome to {{Individual_Park_Spaces}}!</p>
-  <p>Here's some information about this park:</p>
+  <h3>Welcome to {{Individual_Park_Spaces}}!</h3>
+  <h4>Here's some information about this park:</h4>
   <p>{{Individual_Park_Spaces}} is {{Park_Acres}} acres</p>
-  <p>{{Individual_Park_Spaces}} is located in {{Park_Borough}}, near {{Park_Location}}, and in zipcode {{Park_Zipcode}}</p>
+  <p>{{Individual_Park_Spaces}} is located in {{Park_Borough}}, near {{Park_Location}}, and is in zipcode {{Park_Zipcode}}</p>
   <p>{{Individual_Park_Spaces}} is a {{Park_Type}}</p>
-  <p>Click <a href="{{Park_URL}}">here</a> to find out more about the Park!</p>
-  <p></p>
+ <div id="button">
+  <a class="btn btn-primary" href="{{Park_URL}}" role="button">Click here to find NYCPARKS' website about this park!</a>
+</div>
+  <!-- <p>Click <a href="{{Park_URL}}">here</a> to find out more about the Park!</p> -->
+
     {% include 'footer.html' %}
   </body>
   </html>

@@ -6,8 +6,18 @@
 <h3>This is zipcode {{zipcodes}}</h3>
 <h4>Here are all the parks in this zipcode:</h4>
 {%for park,spaces in park_list_and_park_underscored%}
-<a href="/micro?{{spaces}}">{{park}}</a><br><br>
+<a class="btn btn-primary" href="/micro?{{spaces}}" role="button">{{park}}</a>
+<br>
+<br>
 {%endfor%}
 <h5>Click on the links to learn more about each park!</h5>
+{%if individual_park_count > avg_park_amount%}
+    {%set ismore = "higher"%}
+{%elif individual_park_count < avg_park_amount%}
+    {%set ismore = "lower"%}
+{%endif%}
+<h6>There are {{individual_park_count}} parks in this zipcode, which is {{ismore}} than the average amount of parks per zipcode, which is around {{avg_park_amount}}</h6>
+<br>
+{%include 'footer.html'%}
 </body>
 </html>

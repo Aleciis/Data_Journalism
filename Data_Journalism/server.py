@@ -3,7 +3,8 @@ from flask import Flask
 from flask import render_template
 from flask import request
 import json
-
+import collections
+import math
 
 app = Flask(__name__, static_url_path='', static_folder='static')
 
@@ -137,15 +138,32 @@ def zipcodes():
     for park in park_list:
         park=park.replace(" ", "_")
         park_list_underscored.append(park)
-    print(park_list)
-    print(park_list_underscored)
-    park_zip_count = [0]*171
-    # for name in Parks:
-    #     for zip in range(len(zipcode_list)):
-    #         print(zipcode_list[zip])
-    # #         if data[name]["ZIPCODE"] == zipcode_list[zip]:
-    # #             park_zip_count[zip]+=1
-    # # print(park_zip_count)
+        # print(park_list)
+        # print(park_list_underscored)
+    
+    # for name, zipcode in zip(Parks, range(len(zipcode_list))):
+    #             print(zipcode_list[zipcode], name)
+    #             if str(data[name]["ZIPCODE"]) == str(zipcode_list[zipcode]):
+    #                 park_zip_count[zipcode]+=1
+    # print(park_zip_count)
+    list_of_total_park_zips=[]
+    for name in Parks:
+        list_of_total_park_zips.append(data[name]["ZIPCODE"])
+    #print(sorted(list_of_total_park_zips))
+
+    # for zips in list_of_total_park_zips:
+    #     park_zip_count.append(list_of_total_park_zips.count(zips))
+
+    park_zip_count=collections.Counter(list_of_total_park_zips)
+    print(park_zip_count[str(zipcodes)]) #number of parks in specific zip code
+
+    park_zip_count_list=[]
+    for zipcode in park_zip_count:
+        park_zip_count_list.append(park_zip_count[zipcode])
+    avg_park_amount=round((sum(park_zip_count_list)/len(park_zip_count_list)), 2)
+    print(avg_park_amount)
+
+
 
 
 
@@ -155,7 +173,7 @@ def zipcodes():
           
 
     # do f=open svg_individual_zipcodes/requestquerystring and copy text to pass as a string
-    return render_template('zipcodes.html', Parks=data.keys(),zipcodes=zipcodes, park_list_underscored=park_list_underscored, Parks_and_Parks_Underscored=zip(Parks,Parks_Underscored),zipcode_svg=str(zipcode_svg), park_list=park_list,Individual_Park_Spaces = Individual_Park_Spaces_String, park_list_and_park_underscored=zip(park_list,park_list_underscored))
+    return render_template('zipcodes.html', Parks=data.keys(),zipcodes=zipcodes, park_list_underscored=park_list_underscored, Parks_and_Parks_Underscored=zip(Parks,Parks_Underscored),zipcode_svg=str(zipcode_svg), park_list=park_list,Individual_Park_Spaces = Individual_Park_Spaces_String, park_list_and_park_underscored=zip(sorted(park_list),park_list_underscored), individual_park_count=park_zip_count[str(zipcodes)], avg_park_amount=avg_park_amount)
 
 
 app.run(debug=True)
