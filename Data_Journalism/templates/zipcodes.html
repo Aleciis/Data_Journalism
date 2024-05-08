@@ -1,8 +1,9 @@
 {% include 'navbar.html' %}
-
-<svg xmlns="http://www.w3.org/2000/svg">
-{{zipcode_svg |  replace("b&#34;","<") }}
+<div style="float:right;">
+<svg xmlns="http://www.w3.org/2000/svg" height="1000" width="1000" viewbox="0 0 1000 1000" fill= "#88A4BC">
+{{zipcode_svg | safe}}
 </svg>
+</div>
 <h3>This is zipcode {{zipcodes}}</h3>
 <h4>Here are all the parks in this zipcode:</h4>
 {%for park,spaces in park_list_and_park_underscored%}

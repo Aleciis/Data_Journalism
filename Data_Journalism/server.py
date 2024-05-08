@@ -123,10 +123,12 @@ def zipcodes():
     print(f"request.url={request.query_string}")
     zipcodes=request.query_string.decode()
     print(zipcodes)
+    
     z = open(f"Data_Journalism/templates/INDIVIDUAL_ZIPCODES/{zipcodes}.svg", "r")
   
     zipcode_svg = z.read()
     print(zipcode_svg)
+    print(str(zipcode_svg))
     park_list = []
     
     for name in Parks:
